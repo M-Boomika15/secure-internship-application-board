@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore internships and submit your application securely.">
+  <title>InternshipHub | Internship Board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Internship<span>Hub</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#internships">Internships</a>
+        <a href="#apply">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</p>
+      <h1>Find an internship.<br><span>Build your future.</span></h1>
+      <p class="hero-copy">Explore opportunities, discover new skills and apply with confidence.</p>
+      <a class="primary-link" href="#internships">Explore internships</a>
+    </section>
+
+    <section id="internships" class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">EXPLORE OPPORTUNITIES</p>
+          <h2>Available internships</h2>
+        </div>
+        <button id="retryButton" class="secondary-button" type="button" hidden>Try again</button>
+      </div>
+      <p id="listStatus" class="status" role="status" aria-live="polite">Loading internships...</p>
+      <div id="internshipList" class="internship-grid"></div>
+    </section>
+
+    <section id="apply" class="section application-section">
+      <div class="application-intro">
+        <p class="eyebrow">TAKE THE NEXT STEP</p>
+        <h2>Apply for an internship</h2>
+        <p>Complete the form below. All fields are required.</p>
+      </div>
+
+      <form id="applicationForm" class="application-form">
+        <label for="internship">Choose internship</label>
+        <select id="internship" name="internship_id" required>
+          <option value="">Loading internships...</option>
+        </select>
+
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="full_name" type="text" minlength="2" maxlength="80"
+               pattern="[A-Za-zÀ-ÿ .'-]+" autocomplete="name" required>
+
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required>
+
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" inputmode="numeric"
+               pattern="[0-9]{10}" maxlength="10" minlength="10"
+               placeholder="10-digit mobile number" autocomplete="tel" required>
+
+        <label for="resumeLink">Resume link (Google Drive or portfolio URL)</label>
+        <input id="resumeLink" name="resume_link" type="url" maxlength="2048"
+               placeholder="https://example.com/resume" required>
+
+        <button id="submitButton" class="primary-button" type="submit">Submit application</button>
+        <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> InternshipHub. Built for learning and opportunity.</div>
+  </footer>
+</body>
+</html>
